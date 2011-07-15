@@ -27,5 +27,4 @@ If you need to use authentication, pass the user:pass information to the FTP URL
 ## Misc
 
  * You may use the client in development mode in order to see the debug messages. Just define the NODE_ENV environment variable with the value 'development'.
- * If there's a FTP error, then the returned error argument also contains the [FTP status code](http://www.theegglestongroup.com/writing/ftp_error_codes.php) of the failed request (error.code). All 4xx and 5xx codes are considered to be errors. The client does not rety even though 4xx may be considered temporary errors.
-
+ * If there's a FTP error, then the returned error argument also contains the [FTP status code](http://www.theegglestongroup.com/writing/ftp_error_codes.php) of the failed request (error.code). All 4xx and 5xx codes are considered to be errors. The client does not retry even though 4xx may be considered temporary errors.
