@@ -1,3 +1,7 @@
+## v0.1.3
+ * Trims the whitespace at the beginning and at the end of the input URL.
+ * Trims the whitespace at the beginning and at the end of the input file path.
+
 ## v0.1.2
  * Small optimization: if the second argument is a callback, the path.resolve() call is avoided.
  * Declares the socket variable into the get method.
