@@ -36,7 +36,7 @@ ftp.get('ftp://localhost/foo.xml', function (error, result) {
 });
 ```
 
-Basically you need to pass the callback as the second argument of the get function instead of passing the file path. However, although the FTP client uses by default the binary mode for transfering a file, the buffered response is intended to be used only with textual data.
+Basically you need to pass the callback as the second argument of the get function instead of passing the file path. The buffered response mode is intended to be used only with textual data.
 
 ## Misc
 
