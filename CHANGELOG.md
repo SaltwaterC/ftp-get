@@ -1,3 +1,6 @@
+## v0.1.4
+ * Introduced some crappy timeouts just to please the Microsoft FTP Service when doing socket.write().
+
 ## v0.1.3
  * Trims the whitespace at the beginning and at the end of the input URL.
  * Trims the whitespace at the beginning and at the end of the input file path.
