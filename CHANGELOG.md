@@ -1,3 +1,9 @@
+## v0.1.5
+ * Removed the hand crafted connection timeouts. The socket error event returns them just fine.
+ * Removed the command channel socket timeout as the command channel may receive no output while downloading the data.
+ * Introduced a timeout for the passive mode in order to error out on crappy FTP servers. This is a consequence to the removal of the command socket timeout.
+ * Fixes a race condition into the FTP error code detection.
+
 ## v0.1.4
  * Introduced some crappy timeouts just to please the Microsoft FTP Service when doing socket.write().
 
