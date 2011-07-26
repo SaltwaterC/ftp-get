@@ -42,3 +42,16 @@ Basically you need to pass the callback as the second argument of the get functi
 
  * You may use the client in development mode in order to see the debug messages. Just define the NODE_ENV environment variable with the value 'development'.
  * If there's a FTP error, then the returned error argument also contains the [FTP status code](http://www.theegglestongroup.com/writing/ftp_error_codes.php) of the failed request (error.code). All 4xx and 5xx codes are considered to be errors. The client does not retry even though 4xx may be considered temporary errors.
+ 
+## Error Codes
+
+Each failure has an attached error code. The write stream, if the file is saved to the disk, returns the file path into the error.file property. The rest of the failures, return the URL of the request, as error.url. Note that the error.url property contains the parsed URL information.
+
+The codes are:
+
+ * 1 - write stream failure
+ * 2 - data socket information timeout
+ * 3 - data socket error
+ * 4 - data connection information failure
+ * 5 - command socket failure
+ * 6 - data socket timeout

@@ -1,3 +1,6 @@
+## v0.1.6
+ * Adds error codes for each failure as well as debug information into the error argument.
+
 ## v0.1.5
  * Rewrite most of the library internals.
 
