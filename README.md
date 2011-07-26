@@ -52,6 +52,5 @@ The codes are:
  * 1 - write stream failure
  * 2 - data socket information timeout
  * 3 - data socket error
- * 4 - data connection information failure
+ * 4 - data socket timeout
  * 5 - command socket failure
- * 6 - data socket timeout
