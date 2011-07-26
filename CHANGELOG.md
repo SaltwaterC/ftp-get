@@ -1,6 +1,6 @@
 ## v0.1.6
  * Adds error codes for each failure as well as debug information into the error argument.
- * Refactored some internals due to more crappy FTP servers. Unfortunately the timeout-free method is too convenient for some implementations.
+ * Made the data listener after connection to wait for all the data events that are received under 500 ms. This is for the servers that don't send their MOTD-like message into a single data event. This is a cleaner approach than using timeouts between socket writes.
 
 ## v0.1.5
  * Rewrite most of the library internals.
