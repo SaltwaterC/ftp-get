@@ -1,6 +1,6 @@
 ## About
 
-Simple FTP client for node.js. Useful for downloading files from a remote location, therefore it implements just a small subset of the FTP protocol. All the data connections use the passive mode. Although the error reporting was implemented with care, it wasn't properly used with production data. Consider it a development preview. The production data smoke test will follow soon.
+Simple FTP client for node.js. Useful for downloading files from a remote location, therefore it implements just a small subset of the FTP protocol. All the data connections use the passive mode. The error reporting was implemented with care. Although it it used in production, it may still fail with exotic FTP servers that do things in their own weird way.
 
 ## Installation
 
@@ -54,3 +54,4 @@ The codes are:
  * 3 - data socket error
  * 4 - data socket timeout
  * 5 - command socket failure
+ * 6 - missing write stream at the end of the transfer

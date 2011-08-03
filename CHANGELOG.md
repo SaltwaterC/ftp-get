@@ -1,7 +1,8 @@
-## v0.1.6
- * Adds error codes for each failure as well as debug information into the error argument.
- * Made the data listener after connection to wait for all the data events that are received under 500 ms. This is for the servers that don't send their MOTD-like message into a single data event. This is a cleaner approach than using timeouts between socket writes.
- * Ignores repeated FTP errors. Calls the callback only once.
+## v0.2
+ * Bugfix: Ignores repeated FTP errors. Calls the callback only once. Implemented a flag that keeps the error callback away, therefore it removes any race condition.
+ * Enhancement: Adds error codes for each failure as well as debug information into the error argument.
+ * Enhancement: Made the data listener after connection to wait for all the data events that do not end with CRLF. This is a cleaner approact that removes the timeouts for the servers that don't send their welcome junk in a single package.
+ * Changes the returned value of the err argument in the success case from undefined to null in order to follow exactly the node.js convention. This may break some code if the evaluation is made against 'undefined'.
 
 ## v0.1.5
  * Rewrite most of the library internals.
