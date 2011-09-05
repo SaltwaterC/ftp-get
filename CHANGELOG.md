@@ -1,3 +1,6 @@
+## v0.2.1
+ * Adds a [fsync(2)](http://linux.die.net/man/2/fsync) wrapper for the transfers that are saved to disk, improving the library stability.
+
 ## v0.2
  * Bugfix: Ignores repeated FTP errors. Calls the callback only once. Implemented a flag that keeps the error callback away, therefore it removes any race condition.
  * Enhancement: Adds error codes for each failure as well as debug information into the error argument.
