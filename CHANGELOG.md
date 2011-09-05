@@ -1,3 +1,6 @@
+## v0.2.2
+ * Makes sure that the success isn't trigered for the saved to the disk transfer if there's an error.
+
 ## v0.2.1
  * Adds a [fsync(2)](http://linux.die.net/man/2/fsync) wrapper for the transfers that are saved to disk, improving the library stability.
 
