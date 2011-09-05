@@ -1,3 +1,6 @@
+## v0.2.3
+ * Removed the last QUIT command before closing the command channel.
+
 ## v0.2.2
  * Makes sure that the success isn't trigered for the saved to the disk transfer if there's an error.
 
