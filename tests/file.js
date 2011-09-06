@@ -2,8 +2,10 @@ var ftp = require('../');
 var assert = require('assert');
 var fs = require('fs');
 var file = './foo.txt';
+var callback = false;
 
 ftp.get('ftp://127.0.0.1/foo.txt', file, function (err, res) {
+	callback = true;
 	assert.ifError(err);
 	fs.stat(file, function (err) {
 		assert.ifError(err);
@@ -15,4 +17,8 @@ ftp.get('ftp://127.0.0.1/foo.txt', file, function (err, res) {
 			});
 		});
 	});
+});
+
+process.on('exit', function () {
+	assert.ok(callback);
 });
