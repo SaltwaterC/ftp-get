@@ -1,3 +1,6 @@
+## v0.2.4
+ * Fixes a race condition where a single data event from the data socket could be missed.
+
 ## v0.2.3
  * Removed the last QUIT command before closing the command channel.
 
