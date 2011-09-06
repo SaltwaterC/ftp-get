@@ -3,3 +3,6 @@ all:
 
 publish: all
 	/usr/bin/env npm publish
+
+test:
+	/bin/sh tools/test.sh
