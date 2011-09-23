@@ -1,6 +1,6 @@
 {
 	"name": "ftp-get",
-	"version": "0.2.4",
+	"version": "0.2.5",
 	"main": "./lib/ftp-get.js",
 	"description": "Simple to use node.js FTP client for downloading remote files",
 	"engines": {

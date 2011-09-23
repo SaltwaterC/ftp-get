@@ -1,3 +1,6 @@
+## v0.2.5
+ * Fixes a possible race condition where a single data event for the disk transfer case might not triggger the end callback.
+
 ## v0.2.4
  * Fixes a race condition where a single data event from the data socket could be missed.
 
