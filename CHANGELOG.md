@@ -1,3 +1,6 @@
+## v0.2.6
+ * Adds support for ftp.head() method modeled after the idea of HTTP's HEAD.
+
 ## v0.2.5
  * Fixes a possible race condition where a single data event for the disk transfer case might not triggger the end callback.
 

@@ -1,6 +1,6 @@
 ## About
 
-Simple FTP client for node.js. Useful for downloading files from a remote location, therefore it implements just a small subset of the FTP protocol. All the data connections use the passive mode. The error reporting was implemented with care. Although it it used in production, it may still fail with exotic FTP servers that do things in their own weird way.
+Simple FTP client for node.js. Useful for downloading files from a remote location, therefore it implements just a small subset of the FTP protocol. Includes a method, modeled after HTTP's HEAD in order to check the existence of a remote resource without downloading its contents. All the data connections use the passive mode. The error reporting was implemented with care. Although it it used in production, it may still fail with exotic FTP servers that do things in their own weird way.
 
 ## Installation
 
@@ -37,6 +37,19 @@ ftp.get('ftp://localhost/foo.xml', function (error, result) {
 ```
 
 Basically you need to pass the callback as the second argument of the get function instead of passing the file path. The buffered response mode is intended to be used only with textual data.
+
+In order to check the existence of a remote resource without the need for actually download the file, there's the ftp.head() method:
+
+```javascript
+var ftp = require('ftp-get');
+ftp.head('ftp://localhost/foo/bar.txt', function (error, size) {
+	if (error) {
+		console.error(error);
+	} else {
+		console.log('The remote file size is: ' + size); // the file size if everything is OK
+	}
+});
+```
 
 ## Misc
 
