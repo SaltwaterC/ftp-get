@@ -1,3 +1,6 @@
+## v0.2.7
+ * Fixes the ftp.head() for when socket errors are emitted.
+
 ## v0.2.6
  * Adds support for ftp.head() method modeled after the idea of HTTP's HEAD.
 
