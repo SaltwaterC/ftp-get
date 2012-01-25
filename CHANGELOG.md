@@ -1,3 +1,7 @@
+## v0.2.8
+ * Fixes the ftp.head() not calling the callback when the underlying socket closes prematurely. Uses the same patch for ftp.get() in order to fail faster than waiting for the data socket to timeout.
+ * The close / error events for both ftp.get() and ftp.head() both call the callback with the same set of properties.
+
 ## v0.2.7
  * Fixes the ftp.head() for when socket errors are emitted.
 
