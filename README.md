@@ -1,4 +1,4 @@
-## About
+## About ![still maintained](http://stillmaintained.com/SaltwaterC/ftp-get.png)
 
 Simple FTP client for node.js. Useful for downloading files from a remote location, therefore it implements just a small subset of the FTP protocol. Includes a method, modeled after HTTP's HEAD in order to check the existence of a remote resource without downloading its contents. All the data connections use the passive mode. The error reporting was implemented with care. Although it it used in production, it may still fail with exotic FTP servers that do things in their own weird way.
 
