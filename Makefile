@@ -4,5 +4,8 @@ all:
 publish: all
 	/usr/bin/env npm publish
 
-test:
-	/bin/sh tools/test.sh
+lint:
+	tools/lint.sh
+
+test: lint
+	tools/test.sh
