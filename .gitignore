@@ -1,3 +1,4 @@
 .project
-.settings/
 *.komodoproject
+.settings/
+node_modules/
