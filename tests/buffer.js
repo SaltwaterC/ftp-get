@@ -1,13 +1,22 @@
+'use strict';
+
 var ftp = require('../');
+
 var assert = require('assert');
-var callback = false;
 
-ftp.get('ftp://127.0.0.1/foo.txt', function (err, res) {
-	callback = true;
+var common = require('./includes/common.js');
+
+var callbacks = {
+	get: 0
+};
+
+ftp.get({
+	url: 'ftp://127.0.0.1/foo.txt',
+	bufferType: 'buffer'
+}, function (err, res) {
+	callbacks.get++;
 	assert.ifError(err);
-	assert.deepEqual(res, 'bar\n');
+	assert.strictEqual(res.toString(), 'bar\n');
 });
 
-process.on('exit', function () {
-	assert.ok(callback);
-});
+common.teardown(callbacks);

@@ -1,17 +1,26 @@
+'use strict';
+
 var ftp = require('../');
+
 var assert = require('assert');
 var fs = require('fs');
+
+var common = require('./includes/common.js');
+
 var file = './foo.txt';
-var callback = false;
+var callbacks ={
+	get: 0
+};
 
 ftp.get('ftp://127.0.0.1/foo.txt', file, function (err, res) {
-	callback = true;
+	callbacks.get++;
+	
 	assert.ifError(err);
 	fs.stat(file, function (err) {
 		assert.ifError(err);
 		fs.readFile(file, function (err, data) {
 			assert.ifError(err);
-			assert.deepEqual(data.toString(), 'bar\n');
+			assert.strictEqual(data.toString(), 'bar\n');
 			fs.unlink(file, function (err) {
 				assert.ifError(err);
 			});
@@ -19,6 +28,4 @@ ftp.get('ftp://127.0.0.1/foo.txt', file, function (err, res) {
 	});
 });
 
-process.on('exit', function () {
-	assert.ok(callback);
-});
+common.teardown(callbacks);

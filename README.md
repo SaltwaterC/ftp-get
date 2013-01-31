@@ -1,6 +1,6 @@
 ## About ![still maintained](http://stillmaintained.com/SaltwaterC/ftp-get.png)
 
-Simple FTP client for node.js. Useful for downloading files from a remote location, therefore it implements just a small subset of the FTP protocol. Includes a method, modeled after HTTP's HEAD in order to check the existence of a remote resource without downloading its contents. All the data connections use the passive mode. The error reporting was implemented with care. Although it it used in production, it may still fail with exotic FTP servers that do things in their own weird way.
+Simple FTP client for node.js. Useful for downloading files from a remote location, therefore it implements just a small subset of the FTP protocol. Includes a method, modeled after HTTP's HEAD in order to check the existence of a remote resource without downloading its contents. The ftp.head() method uses the FTP SIZE command which a RFC 3659 extension to the protocol, since 2007.
 
 ## Installation
 
@@ -63,8 +63,12 @@ Each failure has an attached error code. The write stream, if the file is saved 
 The codes are:
 
  * 1 - write stream failure
- * 2 - data socket information timeout
+ * 2 - NOT IMPLEMENTED in v0.3
  * 3 - data socket error
  * 4 - data socket timeout
  * 5 - command socket failure
- * 6 - missing write stream at the end of the transfer
+ * 6 - NOT IMPLEMENTED in v0.3
+ * 7 - command socket timeout
+ * 8 - SIZE command not implemented per RFC 3659
+ * 9 - could not get the data socket information
+ * 10 - wrong file size at succesful transfer
