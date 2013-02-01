@@ -1,8 +1,5 @@
 # TODO
- * Self hosted unit tests.
  * Buggy FTP implementations to test against.
- * ReadableStream support besides WriteStream to file and buffer.
- * Support for Buffer buffers (done, default ATM). Deprecate the String buffers.
  * Battle hardening.
  * Travis CI integration.
 
@@ -11,6 +8,7 @@
  * Better debug mode.
  * node.js v0.6+ support only.
  * jslint compliant.
+ * Support for Buffer buffering. The String buffers are deprecated.
 
 ## v0.2.8
  * Fixes the ftp.head() not calling the callback when the underlying socket closes prematurely. Uses the same patch for ftp.get() in order to fail faster than waiting for the data socket to timeout.

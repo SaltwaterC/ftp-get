@@ -72,3 +72,4 @@ The codes are:
  * 8 - SIZE command not implemented per RFC 3659
  * 9 - could not get the data socket information
  * 10 - wrong file size at succesful transfer
+ * 11 - command socket prematurely closed
