@@ -9,6 +9,7 @@
  * jslint compliant.
  * Support for Buffer buffering. The String buffers are deprecated.
  * New error codes. Removed a couple of old error codes.
+ * Configurable timeouts.
 
 ## v0.2.8
  * Fixes the ftp.head() not calling the callback when the underlying socket closes prematurely. Uses the same patch for ftp.get() in order to fail faster than waiting for the data socket to timeout.
