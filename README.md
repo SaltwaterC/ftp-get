@@ -73,3 +73,4 @@ The codes are:
  * 9 - could not get the data socket information
  * 10 - wrong file size at succesful transfer
  * 11 - command socket prematurely closed
+ * 12 - the file does not exist at the end of the transfer
