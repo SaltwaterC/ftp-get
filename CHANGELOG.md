@@ -1,4 +1,5 @@
 # TODO
+ * error.ftperr === true.
  * Battle hardening.
  * Travis CI integration.
 

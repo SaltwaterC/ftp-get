@@ -1,6 +1,6 @@
 ## About ![still maintained](http://stillmaintained.com/SaltwaterC/ftp-get.png)
 
-Simple FTP client for node.js. Useful for downloading files from a remote location, therefore it implements just a small subset of the FTP protocol. Includes a method, modeled after HTTP's HEAD in order to check the existence of a remote resource without downloading its contents. The ftp.head() method uses the FTP SIZE command which a RFC 3659 extension to the protocol, since 2007.
+Simple FTP client for node.js implemented in pure JavaScript. Useful for downloading files from a remote location, therefore it implements just a small subset of the FTP protocol. Includes a method, modeled after HTTP's HEAD in order to check the existence of a remote resource without downloading its contents. The ftp.head() method uses the FTP SIZE command which a RFC 3659 extension to the protocol, since 2007. However, in practice most FTP servers implement the SIZE extension before the RFC publishing date.
 
 ## Installation
 
@@ -10,67 +10,26 @@ Either manually clone this repository into your node_modules directory, or the r
 
 ## Usage mode
 
-```javascript
-var ftp = require('ftp-get');
+ * The [ftp.get method](https://github.com/SaltwaterC/ftp-get/wiki/ftp.get-method)
+ * The [ftp.head method]()
 
-ftp.get('ftp://localhost/foo.pdf', '/path/to/foo.pdf', function (error, result) {
-	if (error) {
-		console.error(error);
-	} else {
-		console.log('File downloaded at: ' + result);
-	}
-});
+## Bug reporting
+
+Unlike 0.2 and before, the 0.3 version of ftp-get went through extensive testing with real world FTP servers. However, some edge cases may still fail. Therefore, in order to have a proper bug repot I'm kindly asking you to provide the troublesome FTP URL (if possible).
+
+I'd appreciate the output of this script as well:
+
+```bash
+NODE_ENV=development node client.js ftp://example.com/ftp/url.foo
 ```
 
-If you need to use authentication, pass the user:pass information to the FTP URL itself. Otherwise, it tries anonymous authentication. The target file path may be relative. [path.resolve()](http://nodejs.org/docs/latest/api/path.html#path.resolve) is used to obtain the absolute path. The absolute path is also returned into the result argument if there aren't any errors.
-
-You may buffer the file without saving it to the disk. Useful if you download something that need to be processed without the need for saving the file:
-
 ```javascript
-ftp.get('ftp://localhost/foo.xml', function (error, result) {
-	if (error) {
-		console.error(error);
-	} else {
-		console.log('The XML document contents: ' + result);
-	}
-});
+// client.js
+var ftp = require('ftp-get')
+
+var url = process.argv[2]
+
+ftp.get(url, 'dl.bin', function (err, res) {
+	console.log(err, res)
+})
 ```
-
-Basically you need to pass the callback as the second argument of the get function instead of passing the file path. The buffered response mode is intended to be used only with textual data.
-
-In order to check the existence of a remote resource without the need for actually download the file, there's the ftp.head() method:
-
-```javascript
-var ftp = require('ftp-get');
-ftp.head('ftp://localhost/foo/bar.txt', function (error, size) {
-	if (error) {
-		console.error(error);
-	} else {
-		console.log('The remote file size is: ' + size); // the file size if everything is OK
-	}
-});
-```
-
-## Misc
-
- * You may use the client in development mode in order to see the debug messages. Just define the NODE_ENV environment variable with the value 'development'.
- * If there's a FTP error, then the returned error argument also contains the [FTP status code](http://www.theegglestongroup.com/writing/ftp_error_codes.php) of the failed request (error.code). All 4xx and 5xx codes are considered to be errors. The client does not retry even though 4xx may be considered temporary errors.
- 
-## Error Codes
-
-Each failure has an attached error code. The write stream, if the file is saved to the disk, returns the file path into the error.file property. The rest of the failures, return the URL of the request, as error.url. Note that the error.url property contains the parsed URL information.
-
-The codes are:
-
- * 1 - write stream failure
- * 2 - NOT IMPLEMENTED in v0.3
- * 3 - data socket error
- * 4 - data socket timeout
- * 5 - command socket failure
- * 6 - NOT IMPLEMENTED in v0.3
- * 7 - command socket timeout
- * 8 - SIZE command not implemented per RFC 3659
- * 9 - could not get the data socket information
- * 10 - wrong file size at succesful transfer
- * 11 - command socket prematurely closed
- * 12 - the file does not exist at the end of the transfer
