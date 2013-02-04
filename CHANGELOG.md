@@ -1,7 +1,6 @@
 # TODO
  * error.ftperr === true.
  * Battle hardening.
- * Travis CI integration.
 
 ## v0.3.0
  * Client rewritten (almost) from scratch.
