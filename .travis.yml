@@ -3,7 +3,7 @@ before_install:
   - sudo apt-get install -yqq bc pure-ftpd
   - sudo groupadd ftp
   - sudo useradd -s /bin/false -d /home/ftp -m -c "anonymous ftp" -g ftp ftp
-  - ls /home/ftp
+  - sudo rm /etc/pure-ftpd/conf/NoAnonymous
   - echo "no" | sudo tee -a /etc/pure-ftpd/conf/NoAnonymous
   - cat /etc/pure-ftpd/conf/NoAnonymous
   - echo "bar" | sudo tee -a /home/ftp/foo.txt
