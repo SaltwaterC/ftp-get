@@ -33,7 +33,7 @@ var server = net.createServer(function (conn) {
 	
 	var asserts = function (err, res) {
 		assert.ok(err instanceof Error);
-		assert.strictEqual(err.code, '530');
+		assert.strictEqual(err.code, 530);
 		
 		if (expect === 0) {
 			util.log('closing the login server');
