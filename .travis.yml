@@ -3,8 +3,8 @@ before_install:
   - sudo apt-get install -yqq pure-ftpd
   - sudo groupadd ftp
   - sudo useradd -s /bin/false -d /home/ftp -m -c "anonymous ftp" -g ftp ftp
-  - sudo echo "no"  > /etc/pure-ftpd/conf/NoAnonymous
-  - sudo echo "bar" > /home/ftp/foo.txt
+  - echo "no" | sudo tee -a /etc/pure-ftpd/conf/NoAnonymous
+  - echo "bar" | sudo tee -a /home/ftp/foo.txt
   - sudo /etc/init.d/pure-ftpd restart
   - npm -g install jslint
 
