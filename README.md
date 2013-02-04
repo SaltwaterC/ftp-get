@@ -1,4 +1,4 @@
-## About ![still maintained](http://stillmaintained.com/SaltwaterC/ftp-get.png)
+## About [![build status](https://secure.travis-ci.org/SaltwaterC/ftp-get.png?branch=master)](http://travis-ci.org/SaltwaterC/ftp-get) ![still maintained](http://stillmaintained.com/SaltwaterC/ftp-get.png)
 
 Simple FTP client for node.js implemented in pure JavaScript. Useful for downloading files from a remote location, therefore it implements just a small subset of the FTP protocol. Includes a method, modeled after HTTP's HEAD in order to check the existence of a remote resource without downloading its contents. The ftp.head() method uses the FTP SIZE command which a RFC 3659 extension to the protocol, since 2007. However, in practice most FTP servers implement the SIZE extension before the RFC publishing date.
 
