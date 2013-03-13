@@ -14,3 +14,6 @@ check: test
 tests: test
 test: all lint
 	tools/test.sh
+
+test-all:
+	tools/test-all.sh

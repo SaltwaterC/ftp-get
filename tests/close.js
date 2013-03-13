@@ -21,15 +21,13 @@ util.log('running on node.js ' + process.version);
 var server = net.createServer(function (conn) {
 	conn.setEncoding('utf8');
 	
-	conn.on('connect', function () {
-		util.log('sending the server hello message');
-		conn.write('220 Hello random people I do not care about' + ftp.CRLF);
-	});
-	
 	conn.on('data', function (data) {
 		util.log('being rude and closing the command socket');
 		conn.end();
 	});
+	
+	util.log('sending the server hello message');
+	conn.write('220 Hello random people I do not care about' + ftp.CRLF);
 }).listen(2121, function () {
 	util.log('server listening on 2121');
 	
