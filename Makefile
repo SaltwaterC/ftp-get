@@ -12,5 +12,5 @@ lint:
 
 check: test
 tests: test
-test: lint
+test: all lint
 	tools/test.sh
