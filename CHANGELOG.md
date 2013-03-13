@@ -1,3 +1,6 @@
+## v0.3.1
+ * Changes the internal buffering concatenation to a much faster implementation: Buffer.concat by using the buffer-concat module for node.js v0.6.
+
 ## v0.3.0
  * Client rewritten (almost) from scratch.
  * Better debug mode.

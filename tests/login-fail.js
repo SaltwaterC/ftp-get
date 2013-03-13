@@ -17,6 +17,7 @@ var expect = 2;
 var url = 'ftp://127.0.0.1:2121/foo.txt';
 
 var server = net.createServer(function (conn) {
+	conn.resume(); // patches in node.js v0.10 "support"
 	conn.setEncoding('utf8');
 	
 	conn.on('connect', function () {

@@ -17,6 +17,7 @@ var expect = 2;
 var url = 'ftp://127.0.0.1:2121/foo.txt';
 
 var server = net.createServer(function (conn) {
+	conn.resume(); // patches in node.js v0.10 "support"
 	conn.setEncoding('utf8');
 	
 	conn.on('connect', function () {
@@ -31,7 +32,7 @@ var server = net.createServer(function (conn) {
 }).listen(2121, function () {
 	util.log('server listening on 2121');
 	
-	var asserts = function (err, res) {
+	var assertions = function (err, res) {
 		assert.ok(err instanceof Error);
 		assert.strictEqual(err.code, 11);
 		
@@ -45,15 +46,17 @@ var server = net.createServer(function (conn) {
 		url: url,
 		bufferType: 'buffer'
 	}, function (err, res) {
+		util.log('ftp.get');
 		callbacks.get++;
 		expect--;
-		asserts(err, res);
+		assertions(err, res);
 	});
 	
 	ftp.head(url, function (err, res) {
+		util.log('ftp.head');
 		callbacks.head++;
 		expect--;
-		asserts(err, res);
+		assertions(err, res);
 	});
 });
 

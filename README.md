@@ -11,7 +11,7 @@ Either manually clone this repository into your node_modules directory, or the r
 ## Usage mode
 
  * The [ftp.get method](https://github.com/SaltwaterC/ftp-get/wiki/ftp.get-method)
- * The [ftp.head method]()
+ * The [ftp.head method](https://github.com/SaltwaterC/ftp-get/wiki/ftp.head-method)
 
 ## Bug reporting
 
